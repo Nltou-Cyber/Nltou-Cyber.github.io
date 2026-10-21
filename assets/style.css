@@ -1,0 +1,549 @@
+/* Portfolio BTS SIO SISR — Baptiste Counil
+   Palette : gris technique clair + baie de brassage sombre.
+   Chaque compétence a la couleur d'un câble réseau. */
+
+:root {
+  --paper: #eef1f4;
+  --surface: #ffffff;
+  --ink: #1c2631;
+  --muted: #56626f;
+  --line: #c9d1da;
+  --panel: #27313c;
+  --panel-edge: #3a4652;
+  --jack: #0f151b;
+  --pin: #c8a24a;
+  --led-ok: #39c46e;
+  --led-wip: #f2a31b;
+  --link: #1f5fc4;
+  --focus: #f2a31b;
+
+  /* Couleurs de câble, une par compétence */
+  --c-patrimoine: #2f6bd8;
+  --c-incidents: #d14a3d;
+  --c-presence: #7b55c7;
+  --c-projet: #e07322;
+  --c-service: #2e9b5a;
+  --c-devpro: #d9a40b;
+
+  --measure: 70ch;
+  --font: "Barlow", system-ui, sans-serif;
+  --font-narrow: "Barlow Condensed", "Barlow", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #161c22;
+    --surface: #1e262e;
+    --ink: #e6ebf0;
+    --muted: #a3afbb;
+    --line: #34404c;
+    --panel: #0f151b;
+    --panel-edge: #2a343e;
+    --jack: #05080b;
+    --link: #7fb0ff;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--link); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* ---------- En-tête ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-block: 1rem;
+}
+.brand {
+  font-family: var(--font-narrow);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] { color: var(--ink); }
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+}
+
+.wrap {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+main { padding-block: 2.5rem 4rem; }
+
+/* ---------- Typographie ---------- */
+
+h1, h2, h3 {
+  font-family: var(--font-narrow);
+  line-height: 1.1;
+  margin: 0 0 0.6em;
+}
+h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; margin-top: 2.5rem; }
+h3 { font-size: 1.35rem; font-weight: 600; margin-top: 1.75rem; }
+
+p, ul, ol, dl { max-width: var(--measure); }
+p { margin: 0 0 1em; }
+li + li { margin-top: 0.3em; }
+
+.lead {
+  font-size: 1.25rem;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.muted { color: var(--muted); }
+
+/* ---------- Accueil ---------- */
+
+.intro { margin-bottom: 2.5rem; }
+.intro h1 {
+  font-size: clamp(3rem, 9vw, 6rem);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.2em;
+}
+
+/* La baie de brassage : une prise RJ45 par compétence */
+.rack {
+  background: var(--panel);
+  border: 1px solid var(--panel-edge);
+  border-radius: 6px;
+  padding: 1.75rem 3.25rem 1.5rem;
+  position: relative;
+  color: #e6ebf0;
+}
+/* Oreilles de fixation avec les trous de vis */
+.rack::before,
+.rack::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: #11181f;
+  box-shadow: inset 0 1px 2px #000, 0 -2.6rem 0 0 #11181f, 0 2.6rem 0 0 #11181f;
+  transform: translateY(-50%);
+}
+.rack::before { left: 1.2rem; }
+.rack::after { right: 1.2rem; }
+
+.rack-title {
+  font-family: var(--font-narrow);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 0 1.25rem;
+  color: #b8c3ce;
+}
+
+.ports {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.25rem;
+  max-width: none;
+}
+.ports li { margin: 0; }
+
+.port-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #e6ebf0;
+  padding: 0.5rem 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+.port-link:hover { background: rgba(255, 255, 255, 0.05); }
+
+.port-num {
+  font-family: var(--font-narrow);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #8d9aa7;
+}
+
+.led {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--led-ok);
+  box-shadow: 0 0 8px var(--led-ok);
+}
+.led.wip {
+  background: var(--led-wip);
+  box-shadow: 0 0 8px var(--led-wip);
+}
+
+.jack {
+  width: 4.25rem;
+  height: 3.4rem;
+  background:
+    repeating-linear-gradient(90deg, var(--pin) 0 3px, transparent 3px 7px) 0.55rem 0.35rem / calc(100% - 1.1rem) 0.75rem no-repeat,
+    var(--jack);
+  clip-path: polygon(0 0, 100% 0, 100% 74%, 68% 74%, 68% 100%, 32% 100%, 32% 74%, 0 74%);
+}
+
+/* Le manchon coloré du câble branché */
+.boot {
+  width: 2.6rem;
+  height: 0.55rem;
+  border-radius: 2px;
+  background: var(--cable);
+}
+
+.port-label {
+  font-family: var(--font-narrow);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.rack-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 1.25rem 0 0;
+  font-size: 0.9rem;
+  color: #b8c3ce;
+}
+.rack-legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .rack .led { animation: link-up 1.4s ease-out 1 both; }
+  .rack li:nth-child(2) .led { animation-delay: 0.12s; }
+  .rack li:nth-child(3) .led { animation-delay: 0.24s; }
+  .rack li:nth-child(4) .led { animation-delay: 0.36s; }
+  .rack li:nth-child(5) .led { animation-delay: 0.48s; }
+  .rack li:nth-child(6) .led { animation-delay: 0.6s; }
+}
+@keyframes link-up {
+  0%, 20% { opacity: 0.15; box-shadow: none; }
+  30% { opacity: 1; }
+  40% { opacity: 0.2; }
+  55%, 100% { opacity: 1; }
+}
+
+@media (max-width: 860px) {
+  .ports { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rack { padding-inline: 2.5rem; }
+}
+@media (max-width: 480px) {
+  .ports { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  .rack { padding: 1.25rem 1.75rem; }
+  .rack::before { left: 0.5rem; }
+  .rack::after { right: 0.5rem; }
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem 3rem;
+  margin-top: 3rem;
+}
+.home-grid h2 { margin-top: 0; font-size: 1.5rem; }
+
+/* ---------- Pages compétences ---------- */
+
+.comp-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.comp-head .mini-jack {
+  flex: none;
+  margin-top: 0.5rem;
+}
+.mini-jack {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.mini-jack .jack { width: 2.6rem; height: 2.1rem; background-size: calc(100% - 0.7rem) 0.45rem; background-position: 0.35rem 0.25rem, 0 0; }
+.mini-jack .boot { width: 1.6rem; height: 0.4rem; }
+
+.comp-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 15rem;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .comp-layout { grid-template-columns: minmax(0, 1fr); }
+  .comp-aside { order: -1; }
+}
+
+.comp-aside {
+  position: sticky;
+  top: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+  font-size: 0.95rem;
+}
+@media (max-width: 900px) { .comp-aside { position: static; } }
+.comp-aside h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.6rem;
+}
+.comp-aside ul { list-style: none; margin: 0; padding: 0; }
+.comp-aside li + li { margin-top: 0.35rem; }
+.comp-aside a {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.comp-aside a:hover { text-decoration: underline; }
+.comp-aside a[aria-current="page"] { font-weight: 600; }
+.swatch {
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 2px;
+  background: var(--cable);
+}
+
+.skills {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem 1.25rem 1rem 2.4rem;
+  max-width: var(--measure);
+}
+.skills li::marker { color: var(--cable); }
+
+.sub {
+  border-top: 1px solid var(--line);
+  padding-top: 0.25rem;
+  margin-top: 2rem;
+}
+.sub h3 { margin-top: 1rem; }
+
+.evidence {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.evidence strong { color: var(--ink); font-weight: 600; }
+
+.todo {
+  border-left: 4px solid var(--led-wip);
+  background: color-mix(in srgb, var(--led-wip) 12%, var(--surface));
+  padding: 0.75rem 1rem;
+  border-radius: 0 4px 4px 0;
+  max-width: var(--measure);
+  margin: 1rem 0;
+}
+.todo p:last-child { margin-bottom: 0; }
+
+.callout {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  max-width: var(--measure);
+  margin: 1.25rem 0;
+}
+.callout p:last-child { margin-bottom: 0; }
+
+/* Déroulé en étapes (vraie séquence) */
+.flow {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+  max-width: var(--measure);
+}
+.flow > li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 1.1rem 3rem;
+  margin: 0;
+}
+.flow > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-narrow);
+  font-weight: 700;
+  background: var(--cable, var(--ink));
+  color: #fff;
+}
+.flow > li::after {
+  content: "";
+  position: absolute;
+  left: calc(1rem - 1px);
+  top: 2.15rem;
+  bottom: 0.15rem;
+  width: 2px;
+  background: var(--line);
+}
+.flow > li:last-child::after { display: none; }
+.flow strong { display: block; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: var(--measure);
+  background: var(--surface);
+  font-size: 0.97rem;
+  margin: 1rem 0 1.5rem;
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+}
+th { font-weight: 600; }
+.table-scroll { overflow-x: auto; max-width: var(--measure); }
+
+.figure-num {
+  font-family: var(--font-narrow);
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+  display: block;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+  max-width: var(--measure);
+  margin: 1rem 0 1.5rem;
+}
+.stats > div {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+}
+.stats span:last-child { color: var(--muted); font-size: 0.95rem; }
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  max-width: var(--measure);
+}
+
+/* ---------- Pied de page ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-block: 1.5rem 2.5rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+}
+.site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+.site-footer a { color: var(--muted); }
+
+@media print {
+  .site-header, .site-footer, .comp-aside, .skip { display: none; }
+  body { background: #fff; color: #000; }
+  .comp-layout { display: block; }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Les listes en ligne n'ont pas d'espacement vertical entre éléments */
+.site-nav li + li,
+.site-footer li + li,
+.ports li + li { margin-top: 0; }

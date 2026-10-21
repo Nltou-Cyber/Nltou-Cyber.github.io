@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gérer le patrimoine informatique | Portfolio Baptiste Counil</title>
+<meta name="description" content="Gérer le patrimoine informatique : activités réalisées, démarche et preuves. Portfolio BTS SIO SISR de Baptiste Counil.">
+<meta name="author" content="Baptiste Counil">
+<link rel="canonical" href="https://nltou-cyber.github.io/patrimoine.html">
+<meta property="og:title" content="Gérer le patrimoine informatique | Portfolio Baptiste Counil">
+<meta property="og:description" content="Gérer le patrimoine informatique : activités réalisées, démarche et preuves. Portfolio BTS SIO SISR de Baptiste Counil.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Baptiste Counil</a>
+    <nav class="site-nav" aria-label="Navigation principale">
+      <ul><li><a href="index.html">Accueil</a></li><li><a href="contexte.html">Contexte</a></li><li><a href="competences.html">Compétences</a></li><li><a href="formation.html">Formation</a></li><li><a href="developpement-pro.html#projet">Avenir pro</a></li><li><a href="annexes.html">Annexes</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="contenu">
+<div class="wrap">
+<div class="comp-layout" style="--cable: var(--c-patrimoine)">
+<article>
+  <div class="comp-head">
+    <span class="mini-jack"><span class="jack" aria-hidden="true"></span><span class="boot" style="--cable: var(--c-patrimoine)" aria-hidden="true"></span></span>
+    <div>
+      <p class="muted" style="margin:0">Compétence 1 sur 6</p>
+      <h1 style="font-size:clamp(2rem,5vw,3.2rem)">Gérer le patrimoine informatique</h1>
+    </div>
+  </div>
+  <p class="muted" style="margin-bottom:.4rem">Ce que couvre cette page :</p>
+  <ul class="skills"><li>Recenser et identifier les ressources numériques</li><li>Exploiter des référentiels, normes et standards</li><li>Mettre en place et vérifier les niveaux d’habilitation</li><li>Vérifier les conditions de la continuité d’un service</li><li>Gérer des sauvegardes</li><li>Vérifier le respect des règles d’utilisation des ressources numériques</li></ul>
+
+  <h2>Contexte</h2>
+  <p>Le service gère un parc de plus d’un millier de postes répartis sur plusieurs sites. Sans inventaire fiable, impossible de savoir quels postes sont actifs, lesquels sont en retard de mises à jour et lesquels doivent être renouvelés.</p>
+
+  <section class="sub">
+    <h3>Recenser et identifier les ressources numériques</h3>
+    <p>J’utilise deux outils complémentaires. Un outil d’inventaire automatisé de type OCS Inventory : un agent installé sur chaque poste remonte son matériel, ses logiciels et son état. Un outil de gestion de parc basé sur GLPI : il suit l’affectation, la date de livraison et le cycle de renouvellement de chaque matériel.</p>
+    <p>Quand un poste ne remonte plus depuis plusieurs mois, il passe en défaillance de connexion. J’appelle l’agent, puis j’écris à l’agent et à son responsable avec le numéro d’inventaire, pour savoir si le poste doit rester dans le parc.</p>
+    <p class="evidence"><strong>Preuve à l’oral :</strong> fiche d’un poste dans l’outil d’inventaire, anonymisée.</p>
+  </section>
+
+  <section class="sub">
+    <h3>Exploiter des référentiels, normes et standards</h3>
+    <p>Seules les applications certifiées par l’organisation sont installées. Le renouvellement des postes suit une durée de référence de six ans : prolonger un poste fiable fait faire des économies, alors qu’un poste trop souvent en panne coûte plus cher qu’il ne rapporte.</p>
+  </section>
+
+  <section class="sub">
+    <h3>Mettre en place et vérifier les niveaux d’habilitation</h3>
+    <p>À l’arrivée d’un agent, son responsable fait la demande de création de compte. La cellule prépare ensuite le poste et installe les applications nécessaires. J’applique le principe du moindre privilège : un agent n’a jamais de droits administrateur sur son poste. S’il a besoin d’un logiciel, il fait un ticket, on étudie son besoin et on l’installe si c’est justifié.</p>
+  </section>
+
+  <section class="sub">
+    <h3>Vérifier les conditions de la continuité d’un service</h3>
+    <p>Quand un agent n’a plus de poste fonctionnel et pas de poste de secours, je privilégie le remplacement immédiat plutôt qu’un long diagnostic. L’agent reprend son travail, et la panne est étudiée ensuite à l’atelier.</p>
+  </section>
+
+  <section class="sub">
+    <h3>Gérer des sauvegardes</h3>
+    <p>Lors d’un changement de poste, je sauvegarde les données professionnelles de l’agent sur un disque externe, puis je les restaure sur le nouveau poste. Je vérifie avec l’agent que ses documents sont bien présents. Le disque est conservé plusieurs mois, au cas où un fichier aurait été oublié.</p>
+  </section>
+
+  <section class="sub">
+    <h3>Vérifier le respect des règles d’utilisation</h3>
+    <p>Je contrôle dans l’outil d’inventaire l’état des mises à jour Windows et du Secure Boot. Un poste en retard ou non conforme est signalé : je contacte l’agent, je vérifie que c’est bien son poste actuel, puis je planifie une remise à niveau, souvent en fin de journée, ou une intervention sur site.</p>
+  </section>
+
+  <h2>Résultat</h2>
+  <p>Un inventaire à jour, des postes conformes et des renouvellements anticipés. Mon rôle ne se limite pas à consulter un outil : je vérifie, je contacte, je signale et je mets à jour la base.</p>
+
+  <h2>Avec du recul</h2>
+  <p>J’ai compris que l’inventaire est la base de tout le reste : sécurité, budget et continuité de service. Pour progresser, je veux mieux connaître la politique de sécurité de mon organisation et sa charte informatique.</p>
+
+  <nav class="pager" aria-label="Compétence précédente ou suivante"><span></span><a href="incidents.html">Suivant : Répondre aux incidents et aux demandes</a></nav>
+</article>
+<aside class="comp-aside">
+  <h2>Les 6 compétences</h2>
+  <ul><li><a href="patrimoine.html" aria-current="page"><span class="swatch" style="--cable: var(--c-patrimoine)"></span>Gérer le patrimoine informatique</a></li><li><a href="incidents.html"><span class="swatch" style="--cable: var(--c-incidents)"></span>Répondre aux incidents et aux demandes</a></li><li><a href="presence-en-ligne.html"><span class="swatch" style="--cable: var(--c-presence)"></span>Développer la présence en ligne</a></li><li><a href="projet.html"><span class="swatch" style="--cable: var(--c-projet)"></span>Travailler en mode projet</a></li><li><a href="service.html"><span class="swatch" style="--cable: var(--c-service)"></span>Mettre à disposition un service</a></li><li><a href="developpement-pro.html"><span class="swatch" style="--cable: var(--c-devpro)"></span>Organiser son développement professionnel</a></li></ul>
+</aside>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Portfolio BTS SIO option SISR, session 2027.</p>
+    <ul>
+      <li><a href="mentions-legales.html">Mentions légales</a></li>
+      <li><a href="confidentialite.html">Données personnelles</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
