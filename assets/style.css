@@ -647,3 +647,13 @@ th { font-weight: 600; }
 .e5-strip p { margin: 0; color: #b8c3ce; }
 .e5-jacks { display: flex; gap: 0.75rem; }
 .e5-jacks .mini-jack .jack { width: 2.2rem; height: 1.8rem; }
+
+/* Fiche de recette */
+.checklist { list-style: none; padding-left: 0; }
+.checklist li { padding-left: 1.6rem; text-indent: -1.6rem; }
+.fiche td { height: 2.2rem; }
+@media print {
+  .no-print { display: none; }
+  .fiche table { max-width: none; }
+  .fiche h2 { margin-top: 1.2rem; break-after: avoid; }
+}
