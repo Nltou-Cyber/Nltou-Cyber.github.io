@@ -4,16 +4,16 @@ Site publié sur https://nltou-cyber.github.io (GitHub Pages, branche `main`).
 
 ## Contenu
 
-- `index.html` : accueil, avec la baie de brassage (une prise par compétence).
-- `contexte.html`, `competences.html`, `formation.html`, `annexes.html`.
-- Une page par compétence E5 : `patrimoine.html`, `incidents.html`, `presence-en-ligne.html`, `projet.html`, `service.html`, `developpement-pro.html`.
+- `index.html` : vitrine pro (parcours, compétences, projets, formation, contact), le lien à mettre sur LinkedIn.
+- `bts-sio/` : espace oral BTS SIO (épreuve E5), avec la baie de brassage (une prise par compétence) et une page par compétence.
 - `mentions-legales.html`, `confidentialite.html`, `404.html`, `sitemap.xml`, `robots.txt`.
+- `CLAUDE.md` : consignes détaillées pour modifier le site avec Claude Code.
 - `assets/style.css` : toute la mise en forme. Chaque compétence a une couleur de câble (`--c-...`).
 
 ## Modifier une page
 
 - Les encadrés « À compléter » ont la classe `todo` : les remplacer par le contenu final.
-- État d'une compétence sur l'accueil : dans `index.html`, une LED `led` (verte) = page complète, `led wip` (orange) = en cours.
+- État d'une compétence : dans `bts-sio/index.html`, une LED `led` (verte) = page complète, `led wip` (orange) = en cours.
 
 ## Règle de confidentialité
 

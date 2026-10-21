@@ -547,3 +547,103 @@ th { font-weight: 600; }
 .site-nav li + li,
 .site-footer li + li,
 .ports li + li { margin-top: 0; }
+
+/* ---------- Ajouts : vitrine pro ---------- */
+
+.brand-sub {
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-left: 0.4rem;
+}
+
+.hero { padding-block: 1rem 2rem; }
+.hero h1 {
+  font-size: clamp(3rem, 9vw, 6rem);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25em;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn:hover { text-decoration: underline; }
+
+.section { margin-top: 3.5rem; }
+.section > h2 { margin-top: 0; }
+
+/* Parcours : dates à gauche, contenu à droite */
+.timeline {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  max-width: 52rem;
+}
+.timeline > li {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: 0.25rem 1.5rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+.timeline .when { color: var(--muted); font-weight: 500; }
+.timeline h3 { margin: 0 0 0.2rem; font-size: 1.3rem; }
+.timeline .org { margin: 0 0 0.5rem; color: var(--muted); }
+.timeline ul { margin: 0; padding-left: 1.2rem; }
+@media (max-width: 640px) {
+  .timeline > li { grid-template-columns: minmax(0, 1fr); }
+}
+
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem 2.5rem;
+  margin-top: 1rem;
+}
+.skill-groups h3 { margin: 0 0 0.35rem; font-size: 1.2rem; }
+.skill-groups p { margin: 0; color: var(--muted); }
+
+.projects { list-style: none; margin: 1rem 0 0; padding: 0; max-width: 52rem; }
+.projects > li { padding: 1rem 0; border-top: 1px solid var(--line); margin: 0; }
+.projects h3 { margin: 0 0 0.3rem; font-size: 1.3rem; }
+.projects p { margin: 0; }
+
+/* Bandeau vers l'espace oral : une rangée de prises */
+.e5-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  background: var(--panel);
+  color: #e6ebf0;
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  margin-top: 3.5rem;
+  text-decoration: none;
+}
+.e5-strip:hover .e5-title { text-decoration: underline; }
+.e5-strip .e5-title {
+  font-family: var(--font-narrow);
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin: 0 0 0.25rem;
+  color: #fff;
+}
+.e5-strip p { margin: 0; color: #b8c3ce; }
+.e5-jacks { display: flex; gap: 0.75rem; }
+.e5-jacks .mini-jack .jack { width: 2.2rem; height: 1.8rem; }
