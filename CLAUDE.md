@@ -64,6 +64,18 @@ Si Baptiste ne donne pas la liste, faire seulement l'étape 3 et le lui signaler
 - Le seul élément visuel fort est la baie de brassage. Le reste reste sobre : texte aligné à gauche, lignes de moins de 75 caractères.
 - Vérifier le rendu sur mobile (390 px de large) et le contraste. Respecter `prefers-reduced-motion`.
 
+## Politique de sécurité du contenu (CSP)
+Chaque page a, juste après la balise `viewport`, la même balise `<meta http-equiv="Content-Security-Policy" ...>`.
+Une nouvelle page doit la reprendre à l'identique. Le navigateur bloque tout ce qu'elle n'autorise pas :
+- pas d'attribut `style="..."`, de balise `<style>`, de script écrit dans la page ni d'attribut `onclick` :
+  utiliser des classes de `assets/style.css` ;
+- seuls les fichiers du site sont chargés, plus GoatCounter (script sur `gc.zgo.at`, comptage vers `bcounil.goatcounter.com`) ;
+- ajouter un service externe (vidéo, carte, police…) oblige à modifier la CSP dans toutes les pages,
+  puis à vérifier qu'aucune erreur CSP n'apparaît dans la console du navigateur.
+
+`frame-ancestors`, qui interdit d'afficher le site dans une iframe, ne fonctionne pas dans une balise meta,
+et GitHub Pages ne permet pas d'ajouter d'en-têtes HTTP : cette protection n'est pas possible ici.
+
 ## Si le nom d'utilisateur GitHub change
 1. Renommer le dépôt en `nouveau-nom.github.io` (Settings du dépôt).
 2. Remplacer `bcounil.github.io` partout : balises `canonical`, `sitemap.xml`, `robots.txt`, `README.md`, ce fichier.
