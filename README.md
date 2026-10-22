@@ -11,6 +11,7 @@ Tout le site est dans `docs/` : c'est le seul dossier publié.
 - `docs/mentions-legales.html`, `docs/confidentialite.html`, `docs/404.html`, `docs/sitemap.xml`, `docs/robots.txt`.
 - `CLAUDE.md` (à la racine, non publié sur le site) : consignes détaillées pour modifier le site avec Claude Code.
 - `docs/assets/style.css` : toute la mise en forme. Chaque compétence a une couleur de câble (`--c-...`).
+- `docs/assets/count.js` : script de statistiques GoatCounter, hébergé sur le site (copie du script officiel).
 
 ## Modifier une page
 

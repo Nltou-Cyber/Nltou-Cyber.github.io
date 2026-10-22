@@ -72,12 +72,19 @@ Chaque page a, juste après la balise `viewport`, la même balise `<meta http-eq
 Une nouvelle page doit la reprendre à l'identique. Le navigateur bloque tout ce qu'elle n'autorise pas :
 - pas d'attribut `style="..."`, de balise `<style>`, de script écrit dans la page ni d'attribut `onclick` :
   utiliser des classes de `docs/assets/style.css` ;
-- seuls les fichiers du site sont chargés, plus GoatCounter (script sur `gc.zgo.at`, comptage vers `bcounil.goatcounter.com`) ;
+- seuls les fichiers du site sont chargés, y compris le script GoatCounter (`docs/assets/count.js`) ;
+  seul l'envoi du comptage sort du site, vers `bcounil.goatcounter.com` ;
 - ajouter un service externe (vidéo, carte, police…) oblige à modifier la CSP dans toutes les pages,
   puis à vérifier qu'aucune erreur CSP n'apparaît dans la console du navigateur.
 
 `frame-ancestors`, qui interdit d'afficher le site dans une iframe, ne fonctionne pas dans une balise meta,
 et GitHub Pages ne permet pas d'ajouter d'en-têtes HTTP : cette protection n'est pas possible ici.
+
+## Statistiques GoatCounter
+`docs/assets/count.js` est une copie du script officiel de GoatCounter (licence ISC : garder l'en-tête).
+Il ne se met pas à jour tout seul, et c'est rarement utile. Pour le mettre à jour : télécharger
+https://gc.zgo.at/count.js, remplacer `docs/assets/count.js`, puis vérifier qu'aucune erreur CSP n'apparaît
+dans la console et que la visite apparaît dans GoatCounter.
 
 ## Si le nom d'utilisateur GitHub change
 1. Renommer le dépôt en `nouveau-nom.github.io` (Settings du dépôt).
