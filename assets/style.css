@@ -713,6 +713,8 @@ th { font-weight: 600; }
 
 /* Fiche de recette */
 .fiche h1 { font-size: clamp(2rem, 5vw, 3rem); }
+/* Les lignes à remplir (____) peuvent passer à la ligne sur mobile */
+.fiche p { overflow-wrap: anywhere; }
 .checklist { list-style: none; padding-left: 0; }
 .checklist li { padding-left: 1.6rem; text-indent: -1.6rem; }
 .fiche td { height: 2.2rem; }
