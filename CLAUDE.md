@@ -1,7 +1,7 @@
 # Portfolio de Baptiste Counil — consignes pour Claude Code
 
 Site statique (HTML + CSS, sans framework ni build) publié par GitHub Pages depuis la branche `main`.
-Adresse : https://nltou-cyber.github.io. Le propriétaire débute avec Git et GitHub : expliquer simplement, en français.
+Adresse : https://bcounil.github.io. Le propriétaire débute avec Git et GitHub : expliquer simplement, en français.
 
 ## Deux parties
 
@@ -48,7 +48,7 @@ Avant chaque commit, vérifier : `grep -rniE "[termes retirés]" --include=*.htm
 
 ## Si le nom d'utilisateur GitHub change
 1. Renommer le dépôt en `nouveau-nom.github.io` (Settings du dépôt).
-2. Remplacer `nltou-cyber.github.io` partout : balises `canonical`, `sitemap.xml`, `robots.txt`, `README.md`, ce fichier.
+2. Remplacer `bcounil.github.io` partout : balises `canonical`, `sitemap.xml`, `robots.txt`, `README.md`, ce fichier.
 3. Prévenir Baptiste : l'ancienne adresse ne redirige pas. Mettre à jour le lien LinkedIn et la bannière LinkedIn.
 
 ## Avant de pousser
