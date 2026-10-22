@@ -21,15 +21,31 @@ Pages communes à la racine : `mentions-legales.html`, `confidentialite.html`, `
 
 ## Règle n°1 : confidentialité
 
-Le dépôt et le site sont **publics** (y compris l'historique Git). Ne jamais publier sans autorisation écrite :
-- captures d'écran d'outils internes, numéros de tickets, d'inventaire, noms d'agents ;
-- noms des outils internes de la DGFiP, noms des sites, chiffres internes (taille d'équipe, nombre de postes), délais (SLA) ;
-- détails techniques du projet Lab Refresh du centre de formation (architecture, plan d'adressage IP, noms des serveurs, mots de passe) ;
-- numéro de téléphone, adresse personnelle.
+Le dépôt, son historique Git et le site sont **publics**. Ce fichier aussi : il ne doit contenir aucun nom réel
+(outil, service, site, ville, domaine, machine), même pour dire qu'il est interdit.
+
+Ne jamais publier sans autorisation écrite :
+- captures d'écran d'outils internes, numéros de tickets ou d'inventaire, noms d'agents ;
+- noms des outils internes de l'employeur, nom exact du service, noms des sites et des villes où ils se trouvent ;
+- chiffres internes (taille d'équipe, nombre de postes, nombre de sites), délais de traitement (SLA) ;
+- détails techniques du labo du centre de formation (projet Lab Refresh) : architecture, nom de domaine,
+  noms des serveurs et des postes, plan d'adressage IP, nom du réseau WiFi, mots de passe ;
+- numéro de téléphone, adresse personnelle, adresse e-mail personnelle.
+
 Formulations génériques autorisées : « outil de ticketing interne », « outil d'inventaire de type OCS Inventory », « base de gestion de parc basée sur GLPI ».
 Le détail complet est réservé à la version PowerPoint montrée au jury.
 
-Avant chaque commit, vérifier : `grep -rniE "[termes retirés]" --include=*.html .` ne doit rien renvoyer.
+### Vérification de confidentialité
+
+1. **En début de session**, avant toute modification, demander à Baptiste la liste des termes interdits.
+   Il la garde dans une note privée, hors du dépôt. Ne jamais écrire ces termes dans un fichier du dépôt,
+   un message de commit, un nom de branche ou une page du site.
+2. Avant chaque commit, chercher ces termes (remplacer `terme1|terme2` par la liste reçue). La commande ne doit rien renvoyer :
+   `grep -rniIE "terme1|terme2" --exclude-dir=.git .`
+3. Chercher aussi les adresses IP, numéros de téléphone français, adresses e-mail et adresses MAC. La commande ne doit rien renvoyer :
+   `grep -rnIE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b|(\+33 ?|\b0)[1-9]([ .-]?[0-9]{2}){4}\b|[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z.]{2,}|\b([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}\b" --exclude-dir=.git .`
+
+Si Baptiste ne donne pas la liste, faire seulement l'étape 3 et le lui signaler à la fin.
 
 ## Conventions de contenu
 - Français, phrases simples, voix active, première personne pour ce que Baptiste a fait.
