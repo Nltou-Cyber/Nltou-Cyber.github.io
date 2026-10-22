@@ -54,6 +54,8 @@ Si Baptiste ne donne pas la liste, faire seulement l'étape 3 et le lui signaler
   Mettre aussi à jour la colonne « État » de `bts-sio/competences.html`.
 - Couleur de câble par compétence (variables CSS) : patrimoine `--c-patrimoine` (bleu), incidents `--c-incidents` (rouge),
   présence en ligne `--c-presence` (violet), projet `--c-projet` (orange), service `--c-service` (vert), développement pro `--c-devpro` (jaune).
+  Pour colorer un élément, lui ajouter la classe correspondante : `cable-patrimoine`, `cable-incidents`, `cable-presence`,
+  `cable-projet`, `cable-service` ou `cable-devpro`.
 - En-tête et pied de page sont recopiés dans chaque fichier HTML : une modification de navigation doit être faite dans toutes les pages
   de la partie concernée.
 

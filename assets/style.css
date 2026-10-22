@@ -298,6 +298,15 @@ li + li { margin-top: 0.3em; }
   background: var(--cable);
 }
 
+/* Couleur de câble d'un élément. Des classes plutôt que des attributs
+   style="...", que la politique de sécurité du contenu (CSP) bloque. */
+.cable-patrimoine { --cable: var(--c-patrimoine); }
+.cable-incidents { --cable: var(--c-incidents); }
+.cable-presence { --cable: var(--c-presence); }
+.cable-projet { --cable: var(--c-projet); }
+.cable-service { --cable: var(--c-service); }
+.cable-devpro { --cable: var(--c-devpro); }
+
 .port-label {
   font-family: var(--font-narrow);
   font-weight: 600;
@@ -362,6 +371,9 @@ li + li { margin-top: 0.3em; }
   flex: none;
   margin-top: 0.5rem;
 }
+.comp-head h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+.comp-num { margin: 0; }
+.skills-label { margin-bottom: 0.4rem; }
 .mini-jack {
   display: inline-flex;
   flex-direction: column;
@@ -413,6 +425,12 @@ li + li { margin-top: 0.3em; }
   height: 0.75rem;
   border-radius: 2px;
   background: var(--cable);
+}
+/* Pastille placée dans du texte (tableau des compétences) */
+.swatch-inline {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5rem;
 }
 
 .skills {
@@ -694,6 +712,7 @@ th { font-weight: 600; }
 .e5-jacks .mini-jack .jack { width: 2.2rem; height: 1.8rem; }
 
 /* Fiche de recette */
+.fiche h1 { font-size: clamp(2rem, 5vw, 3rem); }
 .checklist { list-style: none; padding-left: 0; }
 .checklist li { padding-left: 1.6rem; text-indent: -1.6rem; }
 .fiche td { height: 2.2rem; }
