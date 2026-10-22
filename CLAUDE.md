@@ -1,19 +1,22 @@
 # Portfolio de Baptiste Counil — consignes pour Claude Code
 
-Site statique (HTML + CSS, sans framework ni build) publié par GitHub Pages depuis la branche `main`.
+Site statique (HTML + CSS, sans framework ni build) publié par GitHub Pages depuis le dossier `docs/` de la branche `main`.
 Adresse : https://bcounil.github.io. Le propriétaire débute avec Git et GitHub : expliquer simplement, en français.
+
+Seul `docs/` est publié (réglage Settings, Pages : branche `main`, dossier `/docs`). `CLAUDE.md` et `README.md`
+restent à la racine : ils sont lisibles dans le dépôt public, mais pas sur le site. Ne rien ajouter d'autre à la racine.
 
 ## Deux parties
 
 | Partie | Dossier | Public visé |
 |---|---|---|
-| Vitrine pro | racine : `index.html` | Recruteurs, lien mis sur LinkedIn |
-| Espace oral BTS SIO (épreuve E5) | `bts-sio/` | Jury du BTS SIO SISR, session 2027 |
+| Vitrine pro | `docs/index.html` | Recruteurs, lien mis sur LinkedIn |
+| Espace oral BTS SIO (épreuve E5) | `docs/bts-sio/` | Jury du BTS SIO SISR, session 2027 |
 
-Pages communes à la racine : `mentions-legales.html`, `confidentialite.html`, `404.html` (chemins absolus, servie partout),
-`sitemap.xml`, `robots.txt`, `.nojekyll`. Styles : `assets/style.css` (un seul fichier pour tout le site).
+Pages communes dans `docs/` : `mentions-legales.html`, `confidentialite.html`, `404.html` (chemins absolus, servie partout),
+`sitemap.xml`, `robots.txt`, `.nojekyll`. Styles : `docs/assets/style.css` (un seul fichier pour tout le site).
 
-### Espace oral E5 (`bts-sio/`)
+### Espace oral E5 (`docs/bts-sio/`)
 - `index.html` : la « baie de brassage », une prise RJ45 par compétence.
 - Une page par compétence : `patrimoine.html`, `incidents.html`, `presence-en-ligne.html`, `projet.html`, `service.html`, `developpement-pro.html`.
 - `contexte.html`, `competences.html`, `formation.html`, `annexes.html`.
@@ -50,8 +53,8 @@ Si Baptiste ne donne pas la liste, faire seulement l'étape 3 et le lui signaler
 ## Conventions de contenu
 - Français, phrases simples, voix active, première personne pour ce que Baptiste a fait.
 - Encadrés à remplir : `<div class="todo">` (« À compléter : … »). Les remplacer par le contenu final, puis supprimer l'encadré.
-- État d'une compétence sur `bts-sio/index.html` : LED `led` (verte) = page complète, `led wip` (orange) = en cours.
-  Mettre aussi à jour la colonne « État » de `bts-sio/competences.html`.
+- État d'une compétence sur `docs/bts-sio/index.html` : LED `led` (verte) = page complète, `led wip` (orange) = en cours.
+  Mettre aussi à jour la colonne « État » de `docs/bts-sio/competences.html`.
 - Couleur de câble par compétence (variables CSS) : patrimoine `--c-patrimoine` (bleu), incidents `--c-incidents` (rouge),
   présence en ligne `--c-presence` (violet), projet `--c-projet` (orange), service `--c-service` (vert), développement pro `--c-devpro` (jaune).
   Pour colorer un élément, lui ajouter la classe correspondante : `cable-patrimoine`, `cable-incidents`, `cable-presence`,
@@ -68,7 +71,7 @@ Si Baptiste ne donne pas la liste, faire seulement l'étape 3 et le lui signaler
 Chaque page a, juste après la balise `viewport`, la même balise `<meta http-equiv="Content-Security-Policy" ...>`.
 Une nouvelle page doit la reprendre à l'identique. Le navigateur bloque tout ce qu'elle n'autorise pas :
 - pas d'attribut `style="..."`, de balise `<style>`, de script écrit dans la page ni d'attribut `onclick` :
-  utiliser des classes de `assets/style.css` ;
+  utiliser des classes de `docs/assets/style.css` ;
 - seuls les fichiers du site sont chargés, plus GoatCounter (script sur `gc.zgo.at`, comptage vers `bcounil.goatcounter.com`) ;
 - ajouter un service externe (vidéo, carte, police…) oblige à modifier la CSP dans toutes les pages,
   puis à vérifier qu'aucune erreur CSP n'apparaît dans la console du navigateur.
@@ -78,7 +81,7 @@ et GitHub Pages ne permet pas d'ajouter d'en-têtes HTTP : cette protection n'es
 
 ## Si le nom d'utilisateur GitHub change
 1. Renommer le dépôt en `nouveau-nom.github.io` (Settings du dépôt).
-2. Remplacer `bcounil.github.io` partout : balises `canonical`, `sitemap.xml`, `robots.txt`, `README.md`, ce fichier.
+2. Remplacer `bcounil.github.io` partout : balises `canonical`, `docs/sitemap.xml`, `docs/robots.txt`, `README.md`, ce fichier.
 3. Prévenir Baptiste : l'ancienne adresse ne redirige pas. Mettre à jour le lien LinkedIn et la bannière LinkedIn.
 
 ## Avant de pousser

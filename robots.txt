@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://bcounil.github.io/sitemap.xml
